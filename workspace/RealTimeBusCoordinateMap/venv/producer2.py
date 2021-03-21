@@ -8,7 +8,7 @@ import time
 def get_serializer(data):
     return json.dumps(data).encode('utf-8')
 
-producer = KafkaProducer(bootstrap_servers=['10.152.21.177:9092'],value_serializer=get_serializer)
+producer = KafkaProducer(bootstrap_servers=['192.168.1.112:9092'],value_serializer=get_serializer)
 
 #uid
 def generate_uuid(busline):

@@ -13,7 +13,7 @@ def index():
 def get_message(topicname):
     data =''
     consumer = KafkaConsumer(topicname,
-                             bootstrap_servers=['10.152.21.177:9092'],
+                             bootstrap_servers=['192.168.1.112:9092'],
                              auto_offset_reset ='latest',
                              group_id='buslines')
     def event():

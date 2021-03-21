@@ -28,6 +28,17 @@
         mapMarkers1 = [];
         mapMarkers2 = [];
         mapMarkers3 = [];
+		mapMarkers4 = [];
+
+		var carIcon = L.icon({
+    iconUrl: './templates/car.png',
+    //shadowUrl: 'leaf-shadow.png',
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 
         var source = new EventSource('/topic/track_bus'); //ENTER YOUR TOPICNAME HERE
         source.addEventListener('message', function(e){
@@ -40,7 +51,8 @@
             for (var i = 0; i < mapMarkers1.length; i++) {
               mymap.removeLayer(mapMarkers1[i]);
             }
-            marker1 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
+            marker1 = L.marker([obj.latitude, obj.longitude],{icon: carIcon}).addTo(mymap);
+			<!--marker1.bindPopup("<b>Bus1</b>").openPopup(); -->
             mapMarkers1.push(marker1);
           }
 
@@ -49,6 +61,7 @@
               mymap.removeLayer(mapMarkers2[i]);
             }
             marker2 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
+			<!--marker2.bindPopup("<b>Bus2</b>").openPopup(); -->
             mapMarkers2.push(marker2);
           }
 
@@ -57,7 +70,17 @@
               mymap.removeLayer(mapMarkers3[i]);
             }
             marker3 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
+			<!--marker3.bindPopup("<b>Bus3</b>").openPopup(); -->
             mapMarkers3.push(marker3);
+          }
+		  
+		  if(obj.busline == '0004') {
+            for (var i = 0; i < mapMarkers4.length; i++) {
+              mymap.removeLayer(mapMarkers4[i]);
+            }
+            marker4 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
+			<!--marker4.bindPopup("<b>Bus4</b>").openPopup(); -->
+            mapMarkers4.push(marker4);
           }
         }, false);
     </script>
