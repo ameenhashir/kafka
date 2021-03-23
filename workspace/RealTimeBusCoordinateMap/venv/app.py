@@ -11,14 +11,12 @@ def index():
 #consumer API
 @app.route('/topic/<topicname>')
 def get_message(topicname):
-    data =''
     consumer = KafkaConsumer(topicname,
-                             bootstrap_servers=['192.168.1.112:9092'],
+                             bootstrap_servers=['10.152.21.186:9092'],
                              auto_offset_reset ='latest',
                              group_id='buslines')
     def event():
         for msg in consumer:
-             #data = '{0}'.format(json.loads(msg.value.decode()))
              data = 'data:{0}\n\n'.format(msg.value.decode())
              yield data
     return Response(event(),mimetype="text/event-stream")

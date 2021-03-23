@@ -42,7 +42,7 @@
               mymap.removeLayer(mapMarkers1[i]);
             }
             marker1 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
-			<!--marker1.bindPopup("<b>Bus1</b>").openPopup(); -->
+			marker1.bindPopup("<b>Bus1</b>").openPopup();
             mapMarkers1.push(marker1);
           }
 
@@ -51,7 +51,6 @@
               mymap.removeLayer(mapMarkers2[i]);
             }
             marker2 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
-			<!--marker2.bindPopup("<b>Bus2</b>").openPopup(); -->
             mapMarkers2.push(marker2);
           }
 
@@ -60,7 +59,6 @@
               mymap.removeLayer(mapMarkers3[i]);
             }
             marker3 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
-			<!--marker3.bindPopup("<b>Bus3</b>").openPopup(); -->
             mapMarkers3.push(marker3);
           }
 		  
@@ -69,9 +67,9 @@
               mymap.removeLayer(mapMarkers4[i]);
             }
             marker4 = L.marker([obj.latitude, obj.longitude]).addTo(mymap);
-			<!--marker4.bindPopup("<b>Bus4</b>").openPopup(); -->
             mapMarkers4.push(marker4);
           }
+		  
         }, false);
     </script>
 
