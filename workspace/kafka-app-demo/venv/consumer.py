@@ -4,9 +4,9 @@ import json
 
 if __name__ == '__main__':
     consumer = KafkaConsumer('registered_user',
-                             bootstrap_servers=['10.152.21.177:9092'],
+                             bootstrap_servers=['10.152.21.186:9092'],
                              auto_offset_reset='earliest',
                              group_id="consumer-group-a")
     print("starting the consumer")
     for msg in consumer:
-        print("Registered Users: {}".format(json.loads(msg.value)))
+        print("Registered Users: parition {} - {}".format(msg.partition,json.loads(msg.value)))

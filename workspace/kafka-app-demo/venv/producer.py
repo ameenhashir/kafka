@@ -7,7 +7,7 @@ def data_serializer(data):
     return json.dumps(data).encode('utf-8')
 
 
-producer = k.KafkaProducer(bootstrap_servers=['10.152.21.177:9092'],value_serializer=data_serializer)
+producer = k.KafkaProducer(bootstrap_servers=['10.152.21.186:9092'],value_serializer=data_serializer)
 
 
 if __name__ == '__main__':
